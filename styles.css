@@ -1,3 +1,4 @@
+/* Reset all default margin, padding and box-sizing for a clean slate */
 * {
     margin: 0;
     padding: 0;
@@ -5,64 +6,80 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #e9eff1;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
+/* Main container holding the forms */
 .login-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    width: 100%;
 }
 
-.login-box {
-    background-color: #fff;
-    padding: 40px;
+/* The main login box styling */
+.login-box, .register-box {
+    background-color: white;
+    padding: 40px 50px;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    max-width: 90%;
+    transition: all 0.3s ease;
 }
 
+/* Heading style */
 h2 {
     text-align: center;
     font-size: 2.5rem;
     color: #1877f2;
+    font-weight: bold;
     margin-bottom: 20px;
 }
 
+/* Form field styling */
 .input-field {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 input {
     width: 100%;
-    padding: 10px;
-    margin: 5px 0;
+    padding: 12px;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 8px;
     font-size: 16px;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
+input:focus {
+    outline: none;
+    border-color: #1877f2;
+    box-shadow: 0 0 5px rgba(24, 117, 242, 0.3);
+}
+
+/* Button styling */
 button {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     background-color: #1877f2;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: #155f8d;
 }
 
+/* Footer section style */
 .footer {
     text-align: center;
     margin-top: 20px;
@@ -73,8 +90,60 @@ button:hover {
     text-decoration: none;
     font-size: 14px;
     display: block;
+    margin: 10px 0;
+    transition: color 0.3s ease;
 }
 
 .footer a:hover {
+    color: #365899;
     text-decoration: underline;
 }
+
+/* Additional button styles in register-box */
+.register-box button {
+    background-color: #34b7f1;
+    color: white;
+}
+
+.register-box button:hover {
+    background-color: #28a1c4;
+}
+
+/* Transition between forms */
+.hidden {
+    display: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .login-box, .register-box {
+        padding: 30px;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    input, button {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-box, .register-box {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    input, button {
+        font-size: 13px;
+    }
+
+    button {
+        padding: 10px;
+    }
+}
+
